@@ -37,6 +37,25 @@ header{
       width: 40%;
       &--link{
         @include subTitle_font;
+        color: $text_color1;
+        position: relative;
+        mix-blend-mode: difference;
+      }
+      &--link:after{
+        content:"";
+        position: absolute;
+        bottom: 0;
+        left: 0; right: 0;
+        height: 2rem;
+        width: 100%;
+        background: $material_color;
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: center left;
+        transition: all 300ms ease .1s;
+      }
+      &--link:hover::after{
+        transform: scaleX(1);
       }
     }
     &--logo{

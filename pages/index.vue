@@ -1,6 +1,7 @@
 <template>
   <section class="container">
     <vueHeader/>
+    
 
   </section>
 </template>
