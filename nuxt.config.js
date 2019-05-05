@@ -23,6 +23,10 @@ module.exports = {
       }
     }
   },
+  server: {
+    port: 3000, // デフォルト: 3000
+    host: '0.0.0.0', // デフォルト: localhost
+  },
   modules: [
     '@nuxtjs/style-resources',
     'nuxt-webfontloader'
@@ -35,7 +39,7 @@ module.exports = {
   },
   webfontloader: {
     google: {
-      families: ['Noto+Sans+JP']
+      families: ['Noto+Sans+JP','Raleway']
     }
   },
   mode: 'universal',

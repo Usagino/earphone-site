@@ -18,7 +18,7 @@ header{
   position: fixed;
   top: 0;
   left: 0;
-  height: 15rem;
+  height: $header_size;
   width: 100vw;
   .header{
     @include full_size
