@@ -4,7 +4,7 @@ header
     .header__menu
       p.header__menu--link SHOP
       p.header__menu--link ABOUT
-    
+    img.header--logo(src="~/assets/image/logo.svg")
     .header__icons
 </template>
 
