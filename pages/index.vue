@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <!-- <vueHeader/> -->
-    <img src="~/assets/image/logo.svg" alt="">
+    <img src="http://livedoor.4.blogimg.jp/himasoku123/imgs/c/f/cfddbcb7.jpg" alt="">
 
   </section>
 </template>
