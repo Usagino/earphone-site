@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <vueHeader/>
+    <h1>hoge</h1>
 
   </section>
 </template>
