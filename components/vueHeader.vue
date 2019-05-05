@@ -2,8 +2,8 @@
 header
   .header
     .header__menu
-      p.header__menu--link SHOP
-      p.header__menu--link ABOUT
+      nuxt-link.header__menu--link(to="/") SHOP
+      nuxt-link.header__menu--link(to="/about") ABOUT
     img.header--logo(src="image/logo.svg")
     .header__icons
 </template>
