@@ -1,0 +1,20 @@
+@mixin Title_font{
+  font-family: "futura",'Noto Sans JP';
+  font-size: 8rem;
+}
+@mixin subTitle_font{
+  font-family: "futura",'Noto Sans JP';
+  font-size: 6rem;
+}
+@mixin Text_font{
+  font-family: "futura",'Noto Sans JP';
+  font-size: 5rem;
+}
+@mixin subText_font{
+  font-family: "futura",'Noto Sans JP';
+  font-size: 4rem;
+}
+@mixin full_size{
+  height: 100%;
+  width: 100%;
+}
