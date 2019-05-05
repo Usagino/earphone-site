@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <vueHeader/>
+    <!-- <vueHeader/> -->
 
   </section>
 </template>
@@ -8,12 +8,12 @@
 <script>
 // components
 import AppLogo from '~/components/AppLogo.vue'
-import vueHeader from '~/components/vueHeader'
+// import vueHeader from '~/components/vueHeader'
 
 export default {
   components: {
     AppLogo,
-    vueHeader,
+    // vueHeader,
   }
 }
 </script>
