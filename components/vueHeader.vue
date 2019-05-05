@@ -4,7 +4,7 @@ header
     .header__menu
       p.header__menu--link SHOP
       p.header__menu--link ABOUT
-    img.header--logo(src="~/assets/image/logo.svg")
+    img.header--logo(src="http://livedoor.blogimg.jp/himasoku123/imgs/9/8/986e8d20.jpg")
     .header__icons
 </template>
 
