@@ -1,6 +1,7 @@
 <template>
   <section class="container">
     <!-- <vueHeader/> -->
+    <img src="~/assets/image/logo.svg" alt="">
 
   </section>
 </template>
