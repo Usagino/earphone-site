@@ -9,22 +9,25 @@
 
 <script>
 export default {
+
 }
 </script>
 
 <style lang="scss" scoped>
   .product{
+    width: 250px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    margin-bottom: 3rem;
     &__thumbnail{
       background: #F4F4F4;
       @include middle;
       width: 100%;
+      height: 250px;
       &__image{
         width: 200px;
         height: auto;
-        padding: 1rem 0;
       }
     }
     &__text{

@@ -59,7 +59,7 @@ header{
       }
     }
     &--logo{
-      width: 8rem;
+      width: 6rem;
       height: auto;
     }
   }

@@ -17,6 +17,13 @@
           topProduct
           topProduct
           topProduct
+          topProduct
+          topProduct
+          topProduct
+          topProduct
+          topProduct
+          topProduct
+          topProduct
     </div>
   </section>
 </template>
@@ -26,13 +33,42 @@
 import AppLogo from '~/components/AppLogo.vue'
 import vueHeader from '~/components/vueHeader'
 import topProduct from '~/components/topProduct'
+// library
+// import products from '../assets/json/product.json'
 
 export default {
   components: {
     AppLogo,
     vueHeader,
     topProduct
-  }
+  },
+  methods: {
+    flexLastAdd: () =>{
+      // console.log("This is flexLastAdd function");
+      let elProductBox = document.querySelector('.main__wrap__products');
+      let elProduct = document.querySelector('.main__wrap__products > *:last-child ');
+      let ProductBoxWidth = elProductBox.clientWidth
+      let ProductWidth = elProduct.clientWidth
+      let ProductPieces = Math.floor(ProductBoxWidth / ProductWidth)
+      let productLength = document.querySelectorAll('.main__wrap__products > *').length
+      let surPlus = ProductPieces - (productLength % ProductPieces)
+      for (var i = 0; i < surPlus; i++) {
+        let elEmpty = document.createElement('span');
+        elProductBox.append(elEmpty)
+      }
+    }
+  },
+  mounted(){
+    this.flexLastAdd();
+    window.onresize = () => {
+      this.flexLastAdd();
+    };
+
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+      setTimeout(() => this.$nuxt.$loading.finish(), 500)
+    })
+  },
 }
 </script>
 
@@ -55,6 +91,8 @@ $gap:3rem;
     grid-column-gap: calc(1.61803 * #{$gap});
     &__nav{
       &__list{
+        position: fixed;
+
         li{
           @include subTitle_font;
           padding-bottom: 3rem;
@@ -62,16 +100,14 @@ $gap:3rem;
       }
     }
     &__products{
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: auto;
-      grid-gap: calc(1 * #{$gap}) calc(1.61803 * #{$gap});
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+
       span{
         content: "";
-        background: gray;
-        @include full_size
-        height: 300px;
-
+        width: 250px;
       }
     }
   }

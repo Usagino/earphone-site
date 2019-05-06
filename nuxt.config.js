@@ -10,7 +10,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  loading: { color: '#3B8070' },
+  loading: '~/components/loading.vue',
   build: {
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
@@ -25,7 +25,7 @@ module.exports = {
   },
   server: {
     port: 3000, // デフォルト: 3000
-    host: '0.0.0.0', // デフォルト: localhost
+    // host: '0.0.0.0', // デフォルト: localhost
   },
   modules: [
     '@nuxtjs/style-resources',
