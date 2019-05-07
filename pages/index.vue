@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     flexLastAdd: () =>{
-      // console.log("This is flexLastAdd function");
+      console.log("This is flexLastAdd function");
       let elProductBox = document.querySelector('.main__wrap__products');
       let elProduct = document.querySelector('.main__wrap__products > *:last-child ');
       let ProductBoxWidth = elProductBox.clientWidth
@@ -66,7 +66,7 @@ export default {
 
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
-      setTimeout(() => this.$nuxt.$loading.finish(), 500)
+      setTimeout(() => this.$nuxt.$loading.finish(), 3000)
     })
   },
 }
@@ -79,7 +79,11 @@ html{
 body{
   @include Text_font;
 }
+.container{
+  display: none;
+}
 $gap:3rem;
+
 .main{
   margin-top: $header_size;
   &__wrap{
