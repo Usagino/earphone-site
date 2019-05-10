@@ -10,12 +10,14 @@
             li headphone
             li prayer
         .main__wrap__products
-          .product(v-for="item in items")
-            .product__thumbnail
-              img.product__thumbnail__image(:src="`image/earphone/${item.productName}.png`")
-            .product__text
-              h1.product__text--title {{item.productName}}
-              p.product__text--price ￥{{item.price}}
+
+          .product(v-for="(item,index) in items")
+            nuxt-link(:to="`/product/${index}`")
+              .product__thumbnail
+                img.product__thumbnail__image(:src="`image/earphone/${item.productName}.png`")
+              .product__text
+                h1.product__text--title {{item.productName}}
+                p.product__text--price ￥{{item.price}}
     </div>
   </section>
 </template>
@@ -125,6 +127,7 @@ $gap:3rem;
   justify-content: space-between;
   flex-direction: column;
   margin-bottom: 3rem;
+
   &__thumbnail{
     background: #F4F4F4;
     @include middle;
@@ -139,9 +142,11 @@ $gap:3rem;
     margin-top: 1.5rem;
     &--title{
       @include Text_font;
+      color: $text_color1;
     }
     &--price{
       @include Text_font;
+      color: $text_color1;
       text-align: right;
       opacity: 0.7;
     }
