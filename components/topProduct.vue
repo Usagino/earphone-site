@@ -9,7 +9,10 @@
 
 <script>
 export default {
-
+  // props:[
+  //   productName,
+  //   productPrice,
+  // ]
 }
 </script>
 

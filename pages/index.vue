@@ -9,23 +9,13 @@
             li earphone
             li headphone
             li prayer
-            li {{ msg }}
         .main__wrap__products
-          p(v-for="item in items") {{ item.productName }}
-          topProduct
-          topProduct
-          topProduct
-          topProduct
-          topProduct
-          topProduct
-          topProduct
-          topProduct
-          topProduct
-          topProduct
-          topProduct
-          topProduct
-          topProduct
-          topProduct
+          .product(v-for="item in items")
+            .product__thumbnail
+              img.product__thumbnail__image(:src="`image/earphone/${item.productName}.png`")
+            .product__text
+              h1.product__text--title {{item.productName}}
+              p.product__text--price ￥{{item.price}}
     </div>
   </section>
 </template>
@@ -128,4 +118,34 @@ $gap:3rem;
     }
   }
 }
+
+.product{
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 3rem;
+  &__thumbnail{
+    background: #F4F4F4;
+    @include middle;
+    width: 100%;
+    height: 250px;
+    &__image{
+      width: 200px;
+      height: auto;
+    }
+  }
+  &__text{
+    margin-top: 1.5rem;
+    &--title{
+      @include Text_font;
+    }
+    &--price{
+      @include Text_font;
+      text-align: right;
+      opacity: 0.7;
+    }
+  }
+}
+
 </style>
