@@ -13,18 +13,20 @@ export default {
   methods: {
     start () {
       this.loading = true
-      TweenMax.set('.container',{
-        display:'none',
-        opacity:0,
-      })
-      // TweenMax.to('.loading-page--logo',1,{rotation:360})
+      TweenMax.set('.container',{opacity:0})
     },
     finish () {
       this.loading = false
-      TweenMax.set('.container',{display:'inline'})
-      TweenMax.to('.container',0.8,{opacity:1})
+      // TweenMax.set('.container',{display:'inline'})
+      TweenMax.to('.container',1,{opacity:1,delay:0.5})
+    },
+    increase(num) {
+      TweenMax.to('.loading-page--logo',3.0,{opacity:0})
     }
-  }
+  },
+  // mounted(){
+  //   TweenMax.to('.loading-page--logo',3.0,{opacity:0})
+  // }
 }
 </script>
 

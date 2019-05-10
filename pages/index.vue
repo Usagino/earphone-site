@@ -9,7 +9,9 @@
             li earphone
             li headphone
             li prayer
+            li {{ msg }}
         .main__wrap__products
+          p(v-for="item in items") {{ item.productName }}
           topProduct
           topProduct
           topProduct
@@ -34,7 +36,8 @@ import AppLogo from '~/components/AppLogo.vue'
 import vueHeader from '~/components/vueHeader'
 import topProduct from '~/components/topProduct'
 // library
-// import products from '../assets/json/product.json'
+import products from '@/assets/json/product.json'
+
 
 export default {
   components: {
@@ -42,6 +45,7 @@ export default {
     vueHeader,
     topProduct
   },
+
   methods: {
     flexLastAdd: () =>{
       console.log("This is flexLastAdd function");
@@ -59,15 +63,23 @@ export default {
     }
   },
   mounted(){
+    const data = require('~/assets/json/product.json')
+    console.log(data);
+
     this.flexLastAdd();
     window.onresize = () => {
       this.flexLastAdd();
     };
-
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
       setTimeout(() => this.$nuxt.$loading.finish(), 3000)
     })
+  },
+  data () {
+    return {
+      msg: 'hello world',
+      items:products
+    }
   },
 }
 </script>
@@ -80,7 +92,7 @@ body{
   @include Text_font;
 }
 .container{
-  display: none;
+  opacity: 0;
 }
 $gap:3rem;
 
