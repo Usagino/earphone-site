@@ -10,7 +10,6 @@
             li headphone
             li prayer
         .main__wrap__products
-
           .product(v-for="(item,index) in items")
             nuxt-link(:to="`/product/${index}`")
               .product__thumbnail
@@ -27,6 +26,7 @@
 import AppLogo from '~/components/AppLogo.vue'
 import vueHeader from '~/components/vueHeader'
 import topProduct from '~/components/topProduct'
+import loadingAnime from '~/components/loadingAnime.vue'
 // library
 import products from '@/assets/json/product.json'
 
@@ -35,7 +35,8 @@ export default {
   components: {
     AppLogo,
     vueHeader,
-    topProduct
+    topProduct,
+    loadingAnime
   },
 
   methods: {

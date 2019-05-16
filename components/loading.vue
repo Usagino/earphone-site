@@ -1,12 +1,17 @@
-<template lang="html">
+<template lang="pug">
   <div class="loading-page" v-if="loading">
-    <img class="loading-page--logo" src="image/logo.svg" alt="">
+    <loadingAnime/>
   </div>
 </template>
 
 <script>
+import loadingAnime from '~/components/loadingAnime.vue'
+
 import {TweenMax} from 'gsap'
 export default {
+  components:{
+    loadingAnime,
+  },
   data: () => ({
     loading: false
   }),
@@ -24,13 +29,10 @@ export default {
       TweenMax.to('.loading-page--logo',3.0,{opacity:0})
     }
   },
-  // mounted(){
-  //   TweenMax.to('.loading-page--logo',3.0,{opacity:0})
-  // }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .loading-page {
   position: fixed;
   top: 0;
@@ -40,10 +42,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-
-}
-img{
-  height: 60px;
-  width: auto;
+  & > * {
+    height: 200px !important;
+    width: auto;
+  }
 }
 </style>
