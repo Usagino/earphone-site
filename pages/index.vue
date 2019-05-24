@@ -17,7 +17,10 @@
               .product__text
                 h1.product__text--title {{item.productName}}
                 p.product__text--price ￥{{item.price}}
+      .main__button
+        p Show more
     </div>
+    vueFooter
   </section>
 </template>
 
@@ -26,7 +29,8 @@
 import AppLogo from '~/components/AppLogo.vue'
 import vueHeader from '~/components/vueHeader'
 import topProduct from '~/components/topProduct'
-import loadingAnime from '~/components/loadingAnime.vue'
+import loadingAnime from '~/components/loadingAnime'
+import vueFooter from '~/components/vueFooter'
 // library
 import products from '@/assets/json/product.json'
 
@@ -36,7 +40,8 @@ export default {
     AppLogo,
     vueHeader,
     topProduct,
-    loadingAnime
+    loadingAnime,
+    vueFooter
   },
 
   methods: {
@@ -117,6 +122,21 @@ $gap:3rem;
       span{
         content: "";
         width: 250px;
+      }
+    }
+  }
+  &__button{
+    width: 17rem;
+    margin:3rem auto 3rem;
+    text-align: center;
+    p{
+      padding: 1rem 2rem;
+      border: 1px solid $Brack;
+      border-radius: 0.6rem;
+      box-shadow: 0rem 0.3rem 0.5rem #{$Brack}30;
+      &:hover{
+        transform: translateY(0.3rem);
+        box-shadow: none;
       }
     }
   }
