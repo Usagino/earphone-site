@@ -13,7 +13,7 @@
           .product(v-for="(item,index) in items")
             nuxt-link(:to="`/product/${index}`")
               .product__thumbnail
-                img.product__thumbnail__image(:src="`image/earphone/${item.productName}.png`")
+                img.product__thumbnail__image(:src="`/image/earphone/${item.productName}.png`")
               .product__text
                 h1.product__text--title {{item.productName}}
                 p.product__text--price ￥{{item.price}}
@@ -25,61 +25,59 @@
 </template>
 
 <script>
-// components
-import AppLogo from '~/components/AppLogo.vue'
-import vueHeader from '~/components/vueHeader'
-import topProduct from '~/components/topProduct'
-import loadingAnime from '~/components/loadingAnime'
-import vueFooter from '~/components/vueFooter'
-// library
-import products from '@/assets/json/product.json'
+  // components
+  import vueHeader from '~/components/vueHeader'
+  import topProduct from '~/components/topProduct'
+  import loadingAnime from '~/components/loadingAnime'
+  import vueFooter from '~/components/vueFooter'
+  // library
+  import products from '@/assets/json/product.json'
 
 
-export default {
-  components: {
-    AppLogo,
-    vueHeader,
-    topProduct,
-    loadingAnime,
-    vueFooter
-  },
+  export default {
+    components: {
+      vueHeader,
+      topProduct,
+      loadingAnime,
+      vueFooter
+    },
 
-  methods: {
-    flexLastAdd: () =>{
-      console.log("This is flexLastAdd function");
-      let elProductBox = document.querySelector('.main__wrap__products');
-      let elProduct = document.querySelector('.main__wrap__products > *:last-child ');
-      let ProductBoxWidth = elProductBox.clientWidth
-      let ProductWidth = elProduct.clientWidth
-      let ProductPieces = Math.floor(ProductBoxWidth / ProductWidth)
-      let productLength = document.querySelectorAll('.main__wrap__products > *').length
-      let surPlus = ProductPieces - (productLength % ProductPieces)
-      for (var i = 0; i < surPlus; i++) {
-        let elEmpty = document.createElement('span');
-        elProductBox.append(elEmpty)
+    methods: {
+      flexLastAdd: () =>{
+        console.log("This is flexLastAdd function");
+        let elProductBox = document.querySelector('.main__wrap__products');
+        let elProduct = document.querySelector('.main__wrap__products > *:last-child ');
+        let ProductBoxWidth = elProductBox.clientWidth
+        let ProductWidth = elProduct.clientWidth
+        let ProductPieces = Math.floor(ProductBoxWidth / ProductWidth)
+        let productLength = document.querySelectorAll('.main__wrap__products > *').length
+        let surPlus = ProductPieces - (productLength % ProductPieces)
+        for (var i = 0; i < surPlus; i++) {
+          let elEmpty = document.createElement('span');
+          elProductBox.append(elEmpty)
+        }
       }
-    }
-  },
-  mounted(){
-    const data = require('~/assets/json/product.json')
-    console.log(data);
+    },
+    mounted(){
+      const data = require('~/assets/json/product.json')
+      console.log(data);
 
-    this.flexLastAdd();
-    window.onresize = () => {
       this.flexLastAdd();
-    };
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start()
-      setTimeout(() => this.$nuxt.$loading.finish(), 3000)
-    })
-  },
-  data () {
-    return {
-      msg: 'hello world',
-      items:products
-    }
-  },
-}
+      window.onresize = () => {
+        this.flexLastAdd();
+      };
+      this.$nextTick(() => {
+        this.$nuxt.$loading.start()
+        setTimeout(() => this.$nuxt.$loading.finish(), 3000)
+      })
+    },
+    data () {
+      return {
+        msg: 'hello world',
+        items:products
+      }
+    },
+  }
 </script>
 
 <style lang="scss">
