@@ -1,15 +1,31 @@
 <template lang="pug">
 header
   .header
+    span(@click="sideMenuOut")
     .header__menu
       nuxt-link.header__menu--link(to="/") SHOP
       nuxt-link.header__menu--link(to="/about") ABOUT
-    img.header--logo(src="image/logo.svg")
+    img.header--logo(src="/image/logo.svg")
     .header__icons
+      .header__icons__count(@click="sideMenuIn")
+        p 0
+  .side(@click="sideMenuOut")
+    .side__wrap
 </template>
 
 <script>
+import {TweenMax} from 'gsap'
 export default {
+  methods:{
+    sideMenuIn: event =>{
+      TweenMax.to('.side',0.2,{ x:'-100%' });
+      TweenMax.to('header span',0.2,{ display:'block' })
+    },
+    sideMenuOut: event =>{
+      TweenMax.to('.side',0.2,{ x:'100%' });
+      TweenMax.to('header span',0.2,{ display:'none' })
+    }
+  }
 }
 </script>
 
@@ -20,6 +36,16 @@ header{
   left: 0;
   height: $header_size;
   width: 100vw;
+  span{
+    position: fixed;
+    @include full_screen;
+    top: 0;
+    left: 0;
+    content: "";
+    background: #bfbfbf70;
+    z-index: 19;
+    display: none;
+  }
   .header{
     @include full_size
     display: grid;
@@ -62,6 +88,33 @@ header{
       width: 6rem;
       height: auto;
     }
+    &__icons{
+      &__count{
+        user-select: none;
+        cursor: pointer;
+        @include middle;
+        border: 1px solid #c1c1c1;
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+        transition: all .2s ease .2s;
+        &:hover{
+          border: 1.5rem solid #C1C1C1;
+          color: white;
+        }
+      }
+    }
+  }
+  .side{
+    width: calc(100vw - 100vh - 6rem);
+    height: 100vw;
+    position: fixed;
+    top: 0;
+    right: calc((100vw - 100vh - 6rem) * -1);
+    content: "";
+    background: $text_color1;
+    z-index: 20;
+
   }
   h1{
     @include subTitle_font
